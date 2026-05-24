@@ -3,18 +3,12 @@ import { useCart } from '../context/CartContext';
 
 export default function FoodItemCard({ item }) {
 
-  // Get cart functions from context
   const { addToCart, cartItems, increaseQty, decreaseQty, removeFromCart } = useCart();
-
-  // Destructure item details
   const { id, name, description, price, image } = item;
-
-  // Check if this item is already in the cart
   const cartItem = cartItems.find((i) => i.id === id);
 
 
   // ADD TO CART
-  // Adds the item and shows a success notification
   const handleAdd = () => {
     addToCart(item);
     toast.success(`🛒 ${name} added to cart!`);

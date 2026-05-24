@@ -5,16 +5,9 @@ import { useWishlist } from '../context/WishlistContext';
 
 export default function Navbar() {
 
-  // Get total cart items count for the badge
   const { totalItems } = useCart();
-
-  // Get wishlist items for the badge
   const { wishlist } = useWishlist();
-
-  // Controls whether mobile menu is open or closed
   const [menuOpen, setMenuOpen] = useState(false);
-
-  // Used to go to a different page
   const navigate = useNavigate();
 
   
@@ -82,8 +75,6 @@ export default function Navbar() {
     );
   }
 
-
-  
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-orange-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">

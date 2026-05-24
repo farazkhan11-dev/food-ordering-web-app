@@ -7,19 +7,13 @@ const DELIVERY_FEE = 2.99;
 
 export default function Cart() {
 
-  // Get cart data and clearCart function from context
   const { cartItems, totalPrice, clearCart } = useCart();
 
-  // Used to go to a different page
   const navigate = useNavigate();
 
-  // Check if cart has no items
   const isEmpty = cartItems.length === 0;
 
-  // Tax is 8% of the total price
   const tax = totalPrice * 0.08;
-
-  // Grand total = subtotal + delivery fee + tax
   const grandTotal = totalPrice + DELIVERY_FEE + tax;
 
 

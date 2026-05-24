@@ -2,37 +2,32 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
-// Fixed delivery fee
+
 const DELIVERY_FEE = 2.99;
 
-// List of payment options
+
 const paymentMethods = [
-  { id: 'card',   label: '💳 Credit / Debit Card' },
-  { id: 'cash',   label: '💵 Cash on Delivery' },
+  { id: 'card', label: '💳 Credit / Debit Card' },
+  { id: 'cash', label: '💵 Cash on Delivery' },
   { id: 'wallet', label: '📱 Digital Wallet' },
 ];
 
 // List of form fields for delivery information
 const formFields = [
-  { name: 'name',    label: 'Full Name',       placeholder: 'John Doe',          colSpan: false },
-  { name: 'email',   label: 'Email Address',   placeholder: 'john@example.com',  colSpan: false },
-  { name: 'phone',   label: 'Phone Number',    placeholder: '+1 234 567 8900',   colSpan: false },
-  { name: 'address', label: 'Street Address',  placeholder: '123 Main Street',   colSpan: true  },
-  { name: 'city',    label: 'City',            placeholder: 'New York',          colSpan: false },
-  { name: 'zip',     label: 'ZIP Code',        placeholder: '10001',             colSpan: false },
+  { name: 'name', label: 'Full Name', placeholder: 'John Doe', colSpan: false },
+  { name: 'email', label: 'Email Address', placeholder: 'john@example.com', colSpan: false },
+  { name: 'phone', label: 'Phone Number', placeholder: '+1 234 567 8900', colSpan: false },
+  { name: 'address', label: 'Street Address', placeholder: '123 Main Street', colSpan: true },
+  { name: 'city', label: 'City', placeholder: 'New York', colSpan: false },
+  { name: 'zip', label: 'ZIP Code', placeholder: '10001', colSpan: false },
 ];
 
 export default function Checkout() {
 
-  
   const navigate = useNavigate();
 
-  // Get cart data and clearCart function from context
   const { cartItems, totalPrice, clearCart } = useCart();
 
-
-  
-  // Stores what the user types in each input field
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -52,7 +47,7 @@ export default function Checkout() {
   const [errors, setErrors] = useState({});
 
 
-  
+
 
   // Tax is 8% of total price
   const tax = totalPrice * 0.08;
@@ -63,7 +58,7 @@ export default function Checkout() {
 
   //  HANDLE INPUT CHANGE
   const handleChange = (e) => {
-    const fieldName  = e.target.name;
+    const fieldName = e.target.name;
     const fieldValue = e.target.value;
 
     // Update the form with the new value
@@ -80,12 +75,12 @@ export default function Checkout() {
   const validate = () => {
     const newErrors = {};
 
-    if (!form.name.trim())    newErrors.name    = 'Full name is required';
-    if (!form.email.trim())   newErrors.email   = 'Email is required';
-    if (!form.phone.trim())   newErrors.phone   = 'Phone number is required';
+    if (!form.name.trim()) newErrors.name = 'Full name is required';
+    if (!form.email.trim()) newErrors.email = 'Email is required';
+    if (!form.phone.trim()) newErrors.phone = 'Phone number is required';
     if (!form.address.trim()) newErrors.address = 'Address is required';
-    if (!form.city.trim())    newErrors.city    = 'City is required';
-    if (!form.zip.trim())     newErrors.zip     = 'ZIP code is required';
+    if (!form.city.trim()) newErrors.city = 'City is required';
+    if (!form.zip.trim()) newErrors.zip = 'ZIP code is required';
 
     return newErrors;
   };
@@ -103,7 +98,7 @@ export default function Checkout() {
 
     // Check for validation errors
     const validation = validate();
-    const hasErrors  = Object.keys(validation).length > 0;
+    const hasErrors = Object.keys(validation).length > 0;
 
     if (hasErrors) {
       // Show errors and stop
@@ -117,7 +112,7 @@ export default function Checkout() {
   };
 
 
-  
+
   // Show this screen after order is placed successfully
   if (orderPlaced) {
     return (
@@ -157,7 +152,7 @@ export default function Checkout() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-    
+
         <div className="lg:col-span-2 space-y-8">
 
           {/* Delivery Information */}
@@ -280,7 +275,7 @@ export default function Checkout() {
           </div>
         </div>
 
-        
+
         <div>
           <div className="bg-white rounded-2xl shadow-md p-6 sticky top-24">
             <h3
@@ -324,7 +319,7 @@ export default function Checkout() {
               </div>
             </div>
 
-            
+
             <button
               onClick={handlePlaceOrder}
               className="btn-primary w-full mt-6 text-center"

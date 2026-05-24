@@ -2,10 +2,7 @@ import { useState } from 'react';
 
 export default function StarRating({ rating, interactive = false, onRate }) {
 
-  // hovered — which star the mouse is currently over (0 = none)
   const [hovered, setHovered] = useState(0);
-
-  // selected — which star the user clicked (0 = none)
   const [selected, setSelected] = useState(0);
 
 

@@ -12,7 +12,7 @@ export default function CartItem({ item }) {
         alt={name}
         className="w-20 h-20 object-cover rounded-xl shrink-0"/>
 
-      {/* Details */}
+      
       <div className="flex-1 min-w-0">
         <h4 className="font-bold text-[#1a1a2e] truncate">{name}</h4>
         <p className="text-[#FF4F1A] font-semibold text-sm mt-0.5">

@@ -6,13 +6,8 @@ import StarRating from './StarRating';
 
 export default function RestaurantCard({ restaurant, index = 0 }) {
 
-  // Used to go to a different page
   const navigate = useNavigate();
-
-  // Get wishlist functions from context
   const { toggleWishlist, isWishlisted } = useWishlist();
-
-  // Destructure restaurant details
   const { id, name, category, image, rating, deliveryTime, description } = restaurant;
 
 
@@ -30,8 +25,6 @@ export default function RestaurantCard({ restaurant, index = 0 }) {
     }
   };
 
-
-  
   // Show filled heart if wishlisted, empty heart if not
   let wishlistIcon;
   if (isWishlisted(id)) {

@@ -3,12 +3,8 @@ const WishlistContext = createContext();
 
 export function WishlistProvider({ children }) {
 
-  // wishlist is a list of saved restaurants
-  // Each item is a full restaurant object
   const [wishlist, setWishlist] = useState([]);
 
-
-  
   const addToWishlist = (restaurant) => {
     const alreadyExists = wishlist.find((r) => r.id === restaurant.id);
 
