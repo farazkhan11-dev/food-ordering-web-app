@@ -86,7 +86,7 @@ export default function Navbar() {
             className="text-xl font-bold"
             style={{ fontFamily: 'Playfair Display, serif', color: '#FF4F1A' }}
           >
-            FeastRush
+            Foodie Hub
           </span>
         </Link>
 

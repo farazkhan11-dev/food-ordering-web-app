@@ -21,7 +21,7 @@ export default function Footer() {
               className="text-2xl font-bold text-white"
               style={{ fontFamily: 'Playfair Display, serif' }}
             >
-              FeastRush
+              Foodie Hub
             </span>
           </div>
 
